@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import * as actionCreator from '../store/actions/actions';
+import logo from '../logo.svg'
 class Age extends Component {
     render() {
         return (
@@ -9,19 +11,21 @@ class Age extends Component {
                 </div>
                 <button onClick={this.props.onAgeUp}>Age Up</button>
                 <button onClick={this.props.onAgeDown}>Age down</button>
+                {this.props.loading && <img className="App-logo" alt="logo" src={logo}></img>}
             </div>
         );
     }
 }
 const mapStateToPros = (state) =>{
     return {
-        age: state.age
+        age: state.age,
+        loading:state.loading
     }
 }
 const mapDispatchToPros = (dispatch) =>{
   return {
-      onAgeUp: () => dispatch({type:'AGE_UP'}),
-      onAgeDown:() => dispatch({type:'AGE_DOWN'})
+      onAgeUp: () => dispatch(actionCreator.ageUp(1)),
+      onAgeDown:() => dispatch(actionCreator.ageDown(2))
   }
 }
 
