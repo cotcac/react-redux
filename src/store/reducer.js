@@ -6,7 +6,7 @@ const reducer =(state = initialState, action) => {
   //create a copy
   const newState = {...state};
   // your action here
-  if(action.type ==='AGE_UP'){
+  if(action.type ==='AGE_UP_ASYNC'){
       newState.age+= action.val;
   }
   if(action.type ==='AGE_DOWN'){
