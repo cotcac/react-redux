@@ -5,24 +5,26 @@ class Age extends Component {
         return (
             <div>
                 <div>
-                    <span>Age:{this.props.age}</span>
+                    <span>A:{this.props.a}</span>
+                    <span>B:{this.props.b}</span>
                 </div>
-                <button onClick={this.props.onAgeUp}>Age Up</button>
-                <button onClick={this.props.onAgeDown}>Age down</button>
+                <button onClick={()=>{this.props.update_a(this.props.b)}}>Update A</button>
+                <button onClick={()=>{this.props.update_b(this.props.a)}}>Update B</button>
             </div>
         );
     }
 }
-const mapStateToPros = (state) =>{
+const mapStoreToPros = (store) =>{
     return {
-        age: state.age
+        a: store.rA.a,
+        b: store.rB.b
     }
 }
 const mapDispatchToPros = (dispatch) =>{
   return {
-      onAgeUp: () => dispatch({type:'AGE_UP'}),
-      onAgeDown:() => dispatch({type:'AGE_DOWN'})
+      update_a: (b) => dispatch({type:'UPDATE_A', b:b}),
+      update_b:(a) => dispatch({type:'UPDATE_B', a:a})
   }
 }
 
-export default connect(mapStateToPros,mapDispatchToPros)(Age);
+export default connect(mapStoreToPros,mapDispatchToPros)(Age);
