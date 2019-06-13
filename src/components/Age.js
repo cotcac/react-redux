@@ -20,8 +20,8 @@ const mapStateToPros = (state) =>{
 }
 const mapDispatchToPros = (dispatch) =>{
   return {
-      onAgeUp: () => dispatch({type:'AGE_UP'}),
-      onAgeDown:() => dispatch({type:'AGE_DOWN'})
+      onAgeUp: () => dispatch({type:'AGE_UP', val:1}),
+      onAgeDown:() => dispatch({type:'AGE_DOWN', val:2})
   }
 }
 
