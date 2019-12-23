@@ -10,8 +10,8 @@ class Age extends Component {
                     <span>Age:{this.props.age}</span>
                 </div>
                 <button onClick={this.props.onAgeUp}>Age Up</button>
-                <button onClick={this.props.onAgeDown}>Age down</button>
-                {this.props.loading && <img className="App-logo" alt="logo" src={logo}></img>}
+                <button onClick={this.props.onAgeDown}>Age down</button> <br/>
+                {this.props.loading && <span>loading...</span>}
             </div>
         );
     }
